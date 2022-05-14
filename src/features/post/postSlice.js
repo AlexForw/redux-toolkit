@@ -15,10 +15,10 @@ export const getPosts = createAsyncThunk(
 
 
 
-export const delPosts = createAsyncThunk(
+export const delPost = createAsyncThunk(
     'post/delPosts', async (id, { rejectWithValue, dispatch }) => {
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        dispatch(setPosts(res.data))
+        await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        dispatch(remPosts(id))
     }
 )
 
@@ -28,10 +28,13 @@ export const postSlice = createSlice({
     reducers: {
         setPosts: (state, action) => {
             state.posts = action.payload
+        },
+        remPosts: (state, action)=>{
+            state.posts = state.posts.filter(elem => elem.id !== action.payload)
         }
     }
 })
 
-export const { setPosts } = postSlice.actions
+export const { setPosts, remPosts } = postSlice.actions
 
 export default postSlice.reducer
