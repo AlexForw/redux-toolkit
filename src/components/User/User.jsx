@@ -1,12 +1,19 @@
 import FirstName from '../FirstName/FirstName'
 import LastName from '../LastName/LastName'
+import { useDispatch } from 'react-redux'
+import { setFirstName } from '../../features/user/userSlice'
 
 const User = () => {
+    const dispatch = useDispatch()
+    console.log(dispatch)
     return (
         <div className='flex flex-col'>
             <input
                 type='text'
                 placeholder='First Name'
+                onChange={(e)=>{
+                    dispatch(setFirstName(e.target.value))
+                }}
                 className='w-full p-1 mb-2 focus:outline-none focus:border-lime-500 focus: border-2 placeholder:text-sm'
             />
             <input
