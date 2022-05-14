@@ -6,18 +6,21 @@ const initialState = {
 }
 
 export const todoSlice = createSlice({
-    name:'todo',
+    name: 'todo',
     initialState,
     reducers: {
-        setTodoItem: (state, action) =>{
+        setTodoItem: (state, action) => {
             state.todos.push(action.payload)
         },
-        changeEvent: (state, action) =>{
+        changeEvent: (state, action) => {
             const changeTodo = state.todos.find(e => e.id === action.payload.id)
             changeTodo.isCompleted = !changeTodo.isCompleted
+        },
+        deleteTodo: (state, action) => {
+            state.todos.pop(action.payload)
         }
     }
 })
 
-export const {setTodoItem, changeEvent} = todoSlice.actions
+export const { setTodoItem, changeEvent, deleteTodo } = todoSlice.actions
 export default todoSlice.reducer
