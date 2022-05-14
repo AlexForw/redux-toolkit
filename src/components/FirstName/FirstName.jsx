@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux"
 
 const FirstName = () => {
-    const name = useSelector((state) => state.user.firstName)
+    const firstName = useSelector((state) => state.user.firstName)
     
-    return <div className='font-bold'>{name}</div>
+    return <div className='font-bold'>{firstName}</div>
 }
 
 export default FirstName
