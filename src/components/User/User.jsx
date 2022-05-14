@@ -7,7 +7,6 @@ import { setLastName } from '../../features/user/userSlice'
 
 const User = () => {
     const dispatch = useDispatch()
-    console.log(dispatch)
     return (
         <div className='flex flex-col'>
             <input

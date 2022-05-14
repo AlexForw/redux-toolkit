@@ -26,7 +26,7 @@ const TodoItem = () => {
                         </div>
                     )
                 })
-            }</div> : <div>Haven't task</div>
+            }</div> : <div>Haven't tasks</div>
         }
         </div>
     )
